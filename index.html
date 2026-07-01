@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clipboard Landing Page</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Bai Jamjuree', sans-serif;
+      background: #f7f7f7;
+      color: #4c545d;
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-weight: 600;
+      color: #4c545d;
+    }
+
+    p {
+      color: #9fabb2;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    /* HERO */
+    .hero {
+      padding-top: 70px;
+    }
+
+    .logo {
+      width: 90px;
+      height: 90px;
+      border: 5px solid #26baa4;
+      border-radius: 50%;
+      margin: 0 auto 40px;
+      position: relative;
+    }
+
+    .logo::after {
+      content: "C";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 48px;
+      color: #26baa4;
+      font-weight: 600;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      margin-bottom: 35px;
+      font-size: 1.05rem;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 34px;
+      border: none;
+      border-radius: 40px;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .ios {
+      background: #26baa4;
+    }
+
+    .mac {
+      background: #6173ff;
+    }
+
+    /* FEATURES */
+    .section-title {
+      font-size: 2.3rem;
+      margin-bottom: 15px;
+    }
+
+    .section-desc {
+      margin-bottom: 70px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .feature h3 {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .mockup {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* DEVICES */
+    .devices {
+      text-align: center;
+    }
+
+    .devices img {
+      margin: auto;
+      max-width: 850px;
+    }
+
+    /* TOOLS */
+    .tools-grid {
+      margin-top: 70px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .tool {
+      padding: 20px;
+    }
+
+    .tool-icon {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .tool h3 {
+      margin-bottom: 10px;
+    }
+
+    /* BRANDS */
+   /* BRANDS MARQUEE */
+
+/* =========================
+   BRANDS MARQUEE
+========================= */
+
+.brands-section{
+  position:relative;
+  padding:90px 0;
+  overflow:hidden;
+  background:#f8fafc;
+}
+
+/* EDGE FADE EFFECTS */
+
+.fade-left,
+.fade-right{
+  position:absolute;
+  top:0;
+  width:120px;
+  height:100%;
+  z-index:5;
+  pointer-events:none;
+}
+
+.fade-left{
+  left:0;
+  background:linear-gradient(
+    to right,
+    #f8fafc 0%,
+    rgba(248,250,252,0) 100%
+  );
+}
+
+.fade-right{
+  right:0;
+  background:linear-gradient(
+    to left,
+    #f8fafc 0%,
+    rgba(248,250,252,0) 100%
+  );
+}
+
+/* MARQUEE */
+
+.marquee{
+  overflow:hidden;
+  width:100%;
+  cursor:grab;
+}
+
+.marquee:active{
+  cursor:grabbing;
+}
+
+.marquee-content{
+  display:flex;
+  align-items:center;
+  gap:35px;
+  width:max-content;
+  animation:marqueeScroll 25s linear infinite;
+}
+
+/* PAUSE ON HOVER */
+
+.marquee:hover .marquee-content{
+  animation-play-state:paused;
+}
+
+/* BRAND CARD */
+
+.brand-card{
+  min-width:220px;
+  height:120px;
+  background:white;
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.06);
+  transition:0.35s ease;
+  user-select:none;
+}
+
+/* LOGO */
+
+.brand-card img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  transition:0.35s ease;
+}
+
+/* TEXT */
+
+.brand-card span{
+  font-size:1.1rem;
+  font-weight:700;
+  color:#718096;
+  transition:0.35s ease;
+}
+
+/* HOVER EFFECT */
+
+.brand-card:hover{
+  transform:translateY(-8px) scale(1.03);
+  box-shadow:
+    0 12px 30px rgba(0,184,148,0.18),
+    0 0 20px rgba(0,184,148,0.25);
+}
+
+.brand-card:hover img{
+  transform:scale(1.15) rotate(3deg);
+}
+
+.brand-card:hover span{
+  color:#00b894;
+}
+
+/* INFINITE ANIMATION */
+
+@keyframes marqueeScroll{
+
+  from{
+    transform:translateX(0);
+  }
+
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .brand-card{
+    min-width:170px;
+    height:100px;
+  }
+
+  .brand-card img{
+    width:34px;
+    height:34px;
+  }
+
+  .brand-card span{
+    font-size:0.95rem;
+  }
+
+  .fade-left,
+  .fade-right{
+    width:50px;
+  }
+}
+
+    /* CTA */
+    .cta {
+      text-align: center;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #ececec;
+      padding: 40px 0;
+      margin-top: 60px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      border: 4px solid #26baa4;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .footer-logo::after {
+      content: "C";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #26baa4;
+      font-size: 30px;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #4c545d;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #26baa4;
+    }
+
+    .socials {
+      display: flex;
+      gap: 20px;
+      font-size: 1.4rem;
+    }
+
+    .socials span {
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .socials span:hover {
+      color: #26baa4;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px) {
+
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .brands {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero center">
+    <div class="container">
+
+      <div class="logo"></div>
+
+      <h1>A history of everything you copy</h1>
+
+      <p>
+        Clipboard allows you to track and organize everything you copy.
+        Instantly access your clipboard on all your devices.
+      </p>
+
+      <div class="btn-group">
+        <button class="btn ios">Download for iOS</button>
+        <button class="btn mac">Download for Mac</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <div class="container">
+
+      <div class="center">
+        <h2 class="section-title">Keep track of your snippets</h2>
+
+        <p class="section-desc">
+          Clipboard instantly stores any item you copy in the cloud,
+          meaning you can access your snippets immediately on all your devices.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <div class="mockup">
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop"
+            alt="">
+        </div>
+
+        <div class="feature-list">
+
+          <div class="feature">
+            <h3>Quick Search</h3>
+            <p>
+              Easily search your snippets by content, category,
+              web address, application and more.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>iCloud Sync</h3>
+            <p>
+              Instantly saves and syncs snippets across all your devices.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h3>Complete History</h3>
+            <p>
+              Retrieve any snippets from the first moment you started using the app.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVICES -->
+  <section class="devices">
+    <div class="container">
+
+      <h2 class="section-title">Access Clipboard anywhere</h2>
+
+      <p class="section-desc">
+        Whether you're on the go, or at your computer,
+        you can access all your Clipboard snippets in a few simple clicks.
+      </p>
+
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+        alt="devices">
+
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section>
+    <div class="container center">
+
+      <h2 class="section-title">Supercharge your workflow</h2>
+
+      <p>
+        We've got the tools to boost your productivity.
+      </p>
+
+      <div class="tools-grid">
+
+        <div class="tool">
+          <div class="tool-icon">📄</div>
+          <h3>Create blacklists</h3>
+          <p>
+            Ensure sensitive information never makes its way to your clipboard.
+          </p>
+        </div>
+
+        <div class="tool">
+          <div class="tool-icon">🔤</div>
+          <h3>Plain text snippets</h3>
+          <p>
+            Remove unwanted formatting from copied text for a consistent look.
+          </p>
+        </div>
+
+        <div class="tool">
+          <div class="tool-icon">👁️</div>
+          <h3>Sneak preview</h3>
+          <p>
+            Quick preview of all snippets on your Clipboard for easy access.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section>
+  <!-- BRANDS -->
+  <section class="brands-section">
+  
+  <!-- BRANDS SECTION -->
+  <section class="brands-section">
+  
+    <div class="fade-left"></div>
+    <div class="fade-right"></div>
+  
+    <div class="marquee" id="marquee">
+  
+      <div class="marquee-content">
+  
+        <!-- BRAND -->
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+          <span>Google</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg">
+          <span>Apple</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg">
+          <span>Meta</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg">
+          <span>Microsoft</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg">
+          <span>Netlify</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+          <span>GitHub</span>
+        </div>
+  
+        <!-- DUPLICATE -->
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+          <span>Google</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg">
+          <span>Apple</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg">
+          <span>Meta</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg">
+          <span>Microsoft</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/netlify/netlify-original.svg">
+          <span>Netlify</span>
+        </div>
+  
+        <div class="brand-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+          <span>GitHub</span>
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </section>
+  
+  </section>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+
+      <h2 class="section-title">Clipboard for iOS and Mac OS</h2>
+
+      <p class="section-desc">
+        Available for free on the App Store.
+        Download for Mac or iOS, sync with iCloud and you're ready to start adding to your clipboard.
+      </p>
+
+      <div class="btn-group">
+        <button class="btn ios">Download for iOS</button>
+        <button class="btn mac">Download for Mac</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-content">
+
+        <div class="footer-logo"></div>
+
+        <div class="footer-links">
+          <a href="#">FAQs</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Press Kit</a>
+          <a href="#">Install Guide</a>
+        </div>
+
+        <div class="socials">
+          <span>📘</span>
+          <span>🐦</span>
+          <span>📸</span>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Simple button interaction
+    const buttons = document.querySelectorAll('.btn');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        alert(`${button.textContent} clicked`);
+      });
+    });
+
+
+        const marquee = document.getElementById("marquee");
+
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+marquee.addEventListener("mousedown", (e) => {
+
+          isDown = true;
+
+        marquee.classList.add("active");
+
+        startX = e.pageX - marquee.offsetLeft;
+
+        scrollLeft = marquee.scrollLeft;
+});
+
+marquee.addEventListener("mouseleave", () => {
+          isDown = false;
+});
+
+marquee.addEventListener("mouseup", () => {
+          isDown = false;
+});
+
+marquee.addEventListener("mousemove", (e) => {
+
+  if(!isDown) return;
+
+        e.preventDefault();
+
+        const x = e.pageX - marquee.offsetLeft;
+
+        const walk = (x - startX) * 2;
+
+        marquee.scrollLeft = scrollLeft - walk;
+});
+
+/* TOUCH SUPPORT */
+
+marquee.addEventListener("touchstart", (e) => {
+
+          startX = e.touches[0].pageX;
+
+        scrollLeft = marquee.scrollLeft;
+});
+
+marquee.addEventListener("touchmove", (e) => {
+
+  const x = e.touches[0].pageX;
+
+        const walk = (x - startX) * 2;
+
+        marquee.scrollLeft = scrollLeft - walk;
+});
+
+  </script>
+
+</body>
+
+</html>
