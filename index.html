@@ -163,8 +163,9 @@
     }
 
     .devices img {
-      margin: auto;
-      max-width: 850px;
+     margin: auto;
+      max-width: 350px;
+      border-radius: 18px;
     }
 
     /* TOOLS */
@@ -197,10 +198,11 @@
 ========================= */
 
 .brands-section{
+  /* height: 250px; */
   position:relative;
   padding:90px 0;
   overflow:hidden;
-  background:#f8fafc;
+  background:#f4f4f5;
 }
 
 /* EDGE FADE EFFECTS */
@@ -237,6 +239,7 @@
 
 .marquee{
   overflow:hidden;
+  height:160px;
   width:100%;
   cursor:grab;
 }
@@ -327,8 +330,14 @@
 /* MOBILE */
 
 @media(max-width:768px){
+  .brands-section{
+    height:200px;
+    padding:60px 0;
+    /* margin-top:20px; */
 
+  }
   .brand-card{
+    align-items: center;
     min-width:170px;
     height:100px;
   }
@@ -585,8 +594,6 @@
 
   <!-- BRANDS -->
   <section>
-  <!-- BRANDS -->
-  <section class="brands-section">
   
   <!-- BRANDS SECTION -->
   <section class="brands-section">
@@ -666,7 +673,6 @@
   
   </section>
   
-  </section>
   </section>
 
   <!-- CTA -->
