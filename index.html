@@ -12,7 +12,8 @@
 
   <style>
     * {
-      gap: 10;
+      /* gap: 1; */
+      /* line-height: 20px; */
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -22,7 +23,7 @@
       font-family: 'Black Ops One', sans-serif;
       background: white;
       color: #4c545d;
-      line-height: 1.6;
+      line-height: 1;
     }
 
     img {
@@ -237,9 +238,13 @@
 }
 
 /* MARQUEE */
-
+.brand{
+  /* height: 10px; */
+  /* line-height: 20px; */
+}
 .marquee{
   overflow:hidden;
+  /* margin-bottom: 20px; */
   height:160px;
   width:100%;
   cursor:grab;
@@ -252,7 +257,7 @@
 .marquee-content{
   display:flex;
   align-items:center;
-  gap:35px;
+  gap:14px;
   width:max-content;
   animation:marqueeScroll 25s linear infinite;
 }
@@ -267,6 +272,7 @@
 
 .brand-card{
   min-width:220px;
+  /* margin-top:20px; */
   height:120px;
   background:white;
   border-radius:20px;
@@ -594,7 +600,7 @@
   </section>
 
   <!-- BRANDS -->
-  <section>
+  <section class="brand">
   
   <!-- BRANDS SECTION -->
   <section class="brands-section">
